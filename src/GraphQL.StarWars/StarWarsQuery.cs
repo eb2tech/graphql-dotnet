@@ -24,6 +24,13 @@ namespace GraphQL.StarWars
                 ),
                 resolve: context => data.GetDroidByIdAsync(context.GetArgument<string>("id"))
             );
+            Field<ListGraphType<CharacterInterface>>(
+                "players",
+                arguments:
+                new QueryArguments(
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "ep", Description = "episode number" }),
+                resolve: context => data.GetHeroByEpisodeAsync(context.GetArgument<string>("ep"))
+            );
         }
     }
 }

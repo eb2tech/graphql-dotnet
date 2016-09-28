@@ -1,0 +1,29 @@
+query {
+  hero {
+  	name
+  }
+}
+
+query getPlayers($epValue: String!){
+  players(ep: $epValue){
+    __typename
+    name
+    appearsIn
+    friends {
+      name
+    }
+  }
+}
+
+query getHuman($idValue: String!){
+  human(id: $idValue){
+    __typename
+    name
+    homePlanet
+    appearsIn
+    friends{
+      name
+      appearsIn
+    }
+  }
+}
